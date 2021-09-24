@@ -157,6 +157,7 @@ namespace ParcialPr
             this.Controls.Add(this.button1);
             this.Name = "Modulo3";
             this.Text = "Modulo3";
+            this.Load += new System.EventHandler(this.Modulo3_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

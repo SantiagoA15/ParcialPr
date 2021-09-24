@@ -56,5 +56,10 @@ namespace ParcialPr
         {
             this.Close();
         }
+
+        private void Modulo3_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
