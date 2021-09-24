@@ -78,6 +78,12 @@
     <Compile Include="Modulo4.Designer.cs">
       <DependentUpon>Modulo4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modulo6.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo6.Designer.cs">
+      <DependentUpon>Modulo6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Moulo5.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     <EmbeddedResource Include="Modulo4.resx">
       <DependentUpon>Modulo4.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modulo6.resx">
+      <DependentUpon>Modulo6.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Moulo5.resx">
       <DependentUpon>Moulo5.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +121,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -125,6 +135,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iniciar.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
