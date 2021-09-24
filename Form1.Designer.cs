@@ -120,6 +120,7 @@ namespace ParcialPr
             this.button1.TabIndex = 36;
             this.button1.Text = "Modulo 1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
