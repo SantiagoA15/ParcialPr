@@ -48,6 +48,7 @@ namespace ParcialPr
             this.button6.TabIndex = 44;
             this.button6.Text = "Modulo 6";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -57,6 +58,7 @@ namespace ParcialPr
             this.button5.TabIndex = 43;
             this.button5.Text = "Modulo 5";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label3
             // 

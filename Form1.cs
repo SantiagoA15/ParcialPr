@@ -40,6 +40,18 @@ namespace ParcialPr
             Modulo4 Modulo4 = new Modulo4();
             Modulo4.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Moulo5 Modulo5 = new Moulo5();
+            Modulo5.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Modulo6 Modulo6 = new Modulo6();
+            Modulo6.Show();
+        }
     }
 }
 
