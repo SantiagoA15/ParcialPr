@@ -78,6 +78,12 @@
     <Compile Include="Modulo4.Designer.cs">
       <DependentUpon>Modulo4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Moulo5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Moulo5.Designer.cs">
+      <DependentUpon>Moulo5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -94,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modulo4.resx">
       <DependentUpon>Modulo4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Moulo5.resx">
+      <DependentUpon>Moulo5.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
