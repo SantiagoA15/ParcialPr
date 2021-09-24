@@ -12,7 +12,7 @@ namespace ParcialPr
 {
     public partial class Modulo6 : Form
     {
-        char[] PalabrasAdivinadas; int oportunidades;
+        char[] PalabrasAdivinadas; int Oportunidades;
         char[] PalabrasSeleccionada;
         char[] Alfabeto;
         String[] Palabras;
@@ -25,72 +25,72 @@ namespace ParcialPr
             flowLayoutPanel1.Controls.Clear();
             flowLayoutPanel1.Enabled = true;
             pictureBox1.Image = null;
-            label1.Visible = false;
-            oportunidades = 0;
+            label2.Visible = false;
+            Oportunidades = 0;//fallar
 
-            pictureBox1.Image = Properties.Resources.Jugando;
-            Palabras = new string[] { "MATERIAS", "UNIVERSIDAD", "ESTUDIANTES", "PROGRAMACION" };
-            Alfabeto = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ".ToCharArray();
-
-
-            Random random = new Random();
-            int IndicePalabra = random.Next(0, Palabras.Length);
-            PalabrasSeleccionada = Palabras[IndicePalabra].ToCharArray();
+            string Palabras = (txtPalabra.Text);
+            Alfabeto = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ ".ToCharArray();
+            PalabrasSeleccionada = Palabras.ToUpper().ToCharArray();
             PalabrasAdivinadas = PalabrasSeleccionada;
 
-
-            foreach (char letraAl in Alfabeto)
+            
+            foreach (char LetraAlfabeto in Alfabeto)
             {
                 Button btnLetra = new Button();
-                btnLetra.Tag = "";
-                btnLetra.Text = letraAl.ToString();
+                btnLetra.Tag = " ";
+                btnLetra.Text = LetraAlfabeto.ToString();
                 btnLetra.Width = 60;
                 btnLetra.Height = 40;
+                btnLetra.Click += Compara;
                 btnLetra.ForeColor = Color.White;
                 btnLetra.Font = new Font(btnLetra.Font.Name, 15, FontStyle.Bold);
                 btnLetra.BackgroundImageLayout = ImageLayout.Center;
                 btnLetra.BackColor = Color.Black;
-                btnLetra.Name = letraAl.ToString();
+                btnLetra.Name = LetraAlfabeto.ToString();
                 flowLayoutPanel1.Controls.Add(btnLetra);
             }
+
             flowLayoutPanel2.Controls.Clear();
-            for (int indicevalor = 0; indicevalor < PalabrasSeleccionada.Length; indicevalor++)
+            for (int ValorLetra = 0; ValorLetra < PalabrasSeleccionada.Length; ValorLetra++)
             {
-                Button letra = new Button();
-                letra.Tag = PalabrasSeleccionada[indicevalor].ToString();
-                letra.Width = 60;
-                letra.Height = 40;
-                letra.ForeColor = Color.Purple;
-                letra.Text = "-";
-                letra.Font = new Font(letra.Font.Name, 32, FontStyle.Bold);
-                letra.BackgroundImageLayout = ImageLayout.Center;
-                letra.BackColor = Color.White;
-                letra.Name = "Adivinado" + letra.ToString();
-                letra.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.acertijo));
-                flowLayoutPanel2.Controls.Add(letra);
+                Button Letra = new Button();
+                Letra.Tag = PalabrasSeleccionada[ValorLetra].ToString();
+                Letra.Width = 46;
+                Letra.Height = 80;
+                Letra.ForeColor = Color.Purple;
+                Letra.Text = "-";
+                Letra.Font = new Font(Letra.Font.Name, 32, FontStyle.Bold);
+                Letra.BackgroundImageLayout = ImageLayout.Center;
+                Letra.BackColor = Color.White;
+                Letra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                Letra.Name = "Adivinaste" + ValorLetra.ToString();
+                Letra.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.juego));
+                flowLayoutPanel2.Controls.Add(Letra);
             }
         }
-        void compara(object sender, EventArgs e)
+
+        void Compara(object sender, EventArgs e)
         {
-            bool encontrado = false;
+            bool encontrada = false;
             Button btn = (Button)sender;
             btn.BackColor = Color.White;
             btn.ForeColor = Color.Black;
             btn.Enabled = false;
-            for (int indicerevisar = 0; indicerevisar < PalabrasAdivinadas.Length; indicerevisar++)
+            for (int Revisar = 0; Revisar < PalabrasAdivinadas.Length; Revisar++)
             {
-                if (PalabrasAdivinadas[indicerevisar] == char.Parse(btn.Text))
+                if (PalabrasAdivinadas[Revisar] == Char.Parse(btn.Text))
                 {
-                    Button tbx = this.Controls.Find("Adivinado" + indicerevisar, true).FirstOrDefault() as Button;
-                    tbx.Text = PalabrasAdivinadas[indicerevisar].ToString();
-                    PalabrasAdivinadas[indicerevisar] = '-';
-                    encontrado = true;
+                  
+                    Button tbx = this.Controls.Find("Adivinaste" + Revisar, true).FirstOrDefault() as Button;
+                    tbx.Text = PalabrasAdivinadas[Revisar].ToString();
+                    PalabrasAdivinadas[Revisar] = '-';
+                    encontrada = true;
                 }
             }
             bool Ganaste = true;
-            for (int indiceganador = 0; indiceganador < PalabrasAdivinadas.Length; indiceganador++)
-            {
-                if (PalabrasAdivinadas[indiceganador] != '-')
+            for (int AnalizarGanador = 0; AnalizarGanador < PalabrasAdivinadas.Length; AnalizarGanador++)
+            { 
+                if (PalabrasAdivinadas[AnalizarGanador] != '-')
                 {
                     Ganaste = false;
                 }
@@ -98,23 +98,22 @@ namespace ParcialPr
             if (Ganaste)
             {
                 MessageBox.Show("Ganaste");
-                pictureBox3.Image = Properties.Resources.btnStart;
             }
-            if (!encontrado)
+            if (!encontrada)
             {
-                oportunidades = oportunidades + 1;
-                pictureBox1.Image = (Bitmap)Properties.Resources.ResourceManager.GetObject("Ahorcado" + oportunidades);
-                if (oportunidades == 8)
-                {
+                Oportunidades = Oportunidades + 1;
+                pictureBox1.Image = (Bitmap)Properties.Resources.ResourceManager.GetObject("ahorcado" + Oportunidades);
+                if (Oportunidades == 7)
+                { 
                     label2.Visible = true;
-                    for (int indicevalor = 0; indicevalor < PalabrasSeleccionada.Length; indicevalor++)
+                    for (int ValorLetra = 0; ValorLetra < PalabrasSeleccionada.Length; ValorLetra++)
                     {
-                        Button btnLetra = this.Controls.Find("Adivinado" + indicevalor, true).FirstOrDefault() as Button;
-                        btnLetra.Text = PalabrasSeleccionada[indicevalor].ToString();
+                        Button btnLetra = this.Controls.Find("Adivinaste" + ValorLetra, true).FirstOrDefault() as Button;
+                        btnLetra.Text = btnLetra.Tag.ToString();
                     }
                     flowLayoutPanel1.Enabled = false;
-                    pictureBox3.Image = Properties.Resources.btnStart;
                 }
+
             }
         }
         private void Modulo6_Load(object sender, EventArgs e)
