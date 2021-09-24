@@ -19,7 +19,14 @@ namespace ParcialPr
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Modulo2 Modulo1 = new Modulo2();
+            Modulo1.Show();
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Modulo Modulo1 = new Modulo();
+            Modulo1.Show();
         }
     }
 }
